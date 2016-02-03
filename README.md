@@ -11,7 +11,16 @@ A program for copying text files.
 UNIX/Linux: To view the system calls the operating system makes while
 running this program, run:
 
-`strace ./a.out`.
+`strace ./a.out`
+
+For Windows: ... run:
+
+`example code`
+
+For Mac OS X/Solaris: ... run:
+
+`example code`
+
 
 ---
 ####Prompt
