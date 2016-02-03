@@ -67,7 +67,19 @@ void prompt_user() {  // primary function to be ran, asks user for inputs
     
 }
 void awesome_prompt() {  // totally uneccessary but awesome, prints ASCII prompt
-    printf("Some Awesome Prompt\n");  // will add later
+//    printf("Some Awesome Prompt\n");  // will add later
+//
+    printf("  $$$$$$\\                                    $$$$$$\\ \n"); 
+    printf(" $$  __$$\\                                  $$  __$$\\\n"); 
+    printf(" $$ /  \\__| $$$$$$\\   $$$$$$\\  $$\\   $$\\    $$ /  \\__| \n");
+    printf(" $$ |      $$  __$$\\ $$  __$$\\ $$ |  $$ |   $$ |      \n");
+    printf(" $$ |      $$ /  $$ |$$ /  $$ |$$ |  $$ |   $$ |      \n");
+    printf(" $$ |  $$\\ $$ |  $$ |$$ |  $$ |$$ |  $$ |   $$ |  $$\\ \n");
+    printf(" \\$$$$$$  |\\$$$$$$  |$$$$$$$  |\\$$$$$$$ |$$\\$$$$$$  |\n");
+    printf(" \\______/  \\______/ $$  ____/  \\____$$ |\\__|\\______/ \n");
+    printf("                     $$ |      $$\\   $$ |\n");             
+    printf("                     $$ |      \\$$$$$$  |\n");
+    printf("                     \\__|       \\______/\n");
 }
 int main() {
     awesome_prompt();
