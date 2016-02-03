@@ -1,9 +1,9 @@
 # copy.c
 A program for copying text files.
 
-####HOW TO COMPILE
-1. `make` - to build
-2. `./copy.o` - to run
+####INSTRUCTIONS
+1. `make`
+2. `./copy.o`
 3. Follow onscreen prompts to copy your files
 
 ---
