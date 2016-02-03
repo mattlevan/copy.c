@@ -10,6 +10,7 @@ A program for copying text files.
 ####SystemCalls
 UNIX/Linux: To view the system calls the operating system makes while
 running this program, run:
+
 `strace ./a.out`.
 
 ---
