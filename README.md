@@ -2,7 +2,7 @@
 A program for copying text files.
 
 ####INSTRUCTIONS
-1. `make`
+1. `gcc copy.c -o copy.o`
 2. `./copy.o`
 3. Follow onscreen prompts to copy your files
 
