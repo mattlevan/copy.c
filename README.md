@@ -21,7 +21,7 @@ It is done in group of two students. Please submit a .zip file, which includes:
 
 2. README file, including i) how to compile and run your program, ii) the list of system calls involved, supported by screen shots, iii) two member members' name and each's specific contribution to the project.
 
-To start with, google and read carefully:
+To start with, Google and read carefully:
 
 how to trace system calls in XXX, where XXX is either windows, linux/unix, or mac os x.
 
