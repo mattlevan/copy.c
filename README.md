@@ -11,7 +11,7 @@ A program for copying text files.
 UNIX/Linux: To view the system calls the operating system makes while
 running this program, run:
 
-`strace ./a.out`
+`strace ./copy.o`
 
 For Windows: ... run:
 
@@ -19,7 +19,7 @@ For Windows: ... run:
 
 For Mac OS X/Solaris: ... run:
 
-`example code`
+`dtrace ./copy.o`
 
 
 ---
