@@ -1,5 +1,5 @@
 #Make file for Project 1
 
-app: copyfile.c
-	gcc -g copyfile.c -o MyCopy.exe
+app: copy.c
+	gcc -g copy.c -o copy.o 
 
