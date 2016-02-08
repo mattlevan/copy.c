@@ -26,19 +26,7 @@ bool file_exists(char *file_name) {
 
     return true;
 }
-/*
-bool file_exists(char *file_name) {  // checks if file exists
-    struct stat str; 
-    int result = stat(file_name, &str);
 
-    if (result != 0) { 
-        perror("File could not be opened for reading.");
-        return false;
-    }
-
-    return true;
-}
-*/
 void copy(char *out_str, char *in_str) {
     // int c to store one char at a time
     int c;
@@ -70,7 +58,8 @@ void copy(char *out_str, char *in_str) {
     fclose(out_ptr);
 }
 
-void prompt_user() {  // primary function to be ran, asks user for inputs
+void prompt_user() {  
+    // primary function to be ran, asks user for inputs
     char str[32], in_str[32], out_str[32]; // 32 char width is fine 
     char *str_ptr = str;
     char *in_ptr = in_str;
@@ -108,13 +97,8 @@ void prompt_user() {  // primary function to be ran, asks user for inputs
 
     copy(out_str, in_str);
 }
-/*
-void awesome_prompt() {
-    printf("Some Awesome Prompt\n");  // will add later
-}
-*/
+
 int main() {
-    // awesome_prompt();
     prompt_user();
     
     return EXIT_SUCCESS; 
