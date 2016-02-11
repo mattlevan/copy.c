@@ -57,7 +57,8 @@ void copy(char *out_str, char *in_str) {
     fclose(out_ptr);
 }
 
-void prompt_user() {  // primary function to be ran, asks user for inputs
+void prompt_user() {  
+    // primary function to be ran, asks user for inputs
     char str[32], in_str[32], out_str[32]; // 32 char width is fine 
     char *str_ptr = str;
     char *in_ptr = in_str;
@@ -107,7 +108,6 @@ void prompt_user() {  // primary function to be ran, asks user for inputs
 
 int main() {
 
-    prompt_user();
     
     return EXIT_SUCCESS; 
 }
