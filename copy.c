@@ -108,6 +108,6 @@ void prompt_user() {
 
 int main() {
 
-    
+    prompt_user();    
     return EXIT_SUCCESS; 
 }
