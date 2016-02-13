@@ -1,6 +1,9 @@
 # copy.c
 A program for copying text files.
 
+Bradley Taniguchi: First draft, program structure, prompt(), file_exists()
+Matt Levan: Naming cleanup, copy(), system calls in README
+
 ####INSTRUCTIONS
 1. `gcc copy.c -o copy.o`
 2. `./copy.o`
@@ -21,6 +24,83 @@ For Mac OS X/Solaris: ... run:
 
 `dtrace ./copy.o`
 
+
+Included in this repository is `strace_log` which is a log created by
+running `strace -ostrace_log ./copy.o`.
+
+List of system calls listed in `strace_log` in order of occurrence (no
+repeats) with the line of occurrence in the first bullet point:
+
+1. `int execve(const char *filename, char *const argv[], char *const envp[]
+);`
+
+  * Line 1: `execve("./copy.o", ["./copy.o"], [/* 28 vars */]) = 0`
+  * Executes the program pointed to by the filename.
+
+2. `int brk(void *addr);`
+
+  * Line 2: `brk(0) = 0x676000`
+  * Changes data segment size, maybe allocates memory.
+
+3. `int access(const char *pathname, int mode);`
+
+  * Line 3: `access(/etc/ld.so.nohwcap", F_OK) = -1 ENOENT (No such file or
+  directory)`
+  * Check a user's permissions for a file.
+
+4. `void *mmap(void *addr, size_t length, int prot, int flags, int fd,
+off_t offset);`
+
+  * Line 4: `mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|
+  MAP_ANONYMOUS, -1, 0) = 0x7f16f3652000`
+  * Map or unmap files or devices into memory (loading of header?).
+
+5. `open(const char *pathname, int flags) = 4`
+
+  * Line 6: `open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 4`
+  * Opens and possibly creates a file.
+
+7. `int fstat(int fd, struct stat *buf);`
+
+  * Line 7: `fstat(4, {st_mode=S_IFREG|0644, st_size=48760, ...}) = 0`
+  * Gets file status.
+
+8. `int close(int fd);`
+
+  * Line 9: `close(4)`
+  * Closes a file descriptor so that it no longer refers to any file.
+
+9. `int mprotect(void *addr, size_t len, int prot);`
+
+  * Line 15: `mprotect(0x7f16f3228000, 2093056, PROT_NONE) = 0`
+  * Set protection on a region of memory.
+
+10. `int arch_prctl(int code, unsigned long addr);`
+
+  * Line 21: `arch_prctl(ARCH_SET_FS, 0x7f16f3643740)`
+  * Set architecture-specific thread state.
+
+11. `int munmap(void *addr, size_t length);`
+
+  * Line 25: `munmap(0x7f16f36546000, 48760)`
+  * Map or unmap files or devices into memory.
+
+12. `ssize_t write(int fd, const void *buf, size_t count);`
+
+  * Line 30: `write(1, "Enter name of source file: ", 27) = 27`
+  * Write to a file descriptor. In this case, maybe it writes the text to
+the screen.
+
+13. `ssize_t read(int fd, void *buf, size_t count);`
+
+  * Line 31: `read(0, "makefile\n", 1024) = 9`
+  * Read from a file descriptor.
+
+14. `void exit_group(int status);`
+
+  * Line 53: `exit_group(0)`
+  * Exit all threads in a process. I believe 0 indicates a successful
+  execution.
 
 ---
 ####Prompt
